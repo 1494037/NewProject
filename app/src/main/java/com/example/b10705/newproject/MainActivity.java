@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_store:
-                Intent intent = new Intent(getApplicationContext(), addMenu.class);
+                Intent intent = new Intent(getApplicationContext(), AddMenu.class);
                 startActivity(intent);
                 return true;
         }
@@ -40,19 +40,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onTitleSelected(int i) {
-        if (getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_LANDSCAPE) {
-            //DetailsFragment detailsFragment = new DetailsFragment();
-            detailFragment detailfragment = new detailFragment();
-            detailfragment.setSelection(i);
-            getSupportFragmentManager().beginTransaction().replace(R.id.details, detailfragment).commit();
-        } else {
-            Intent intent = new Intent(this, detailActivity.class);
-            intent.putExtra("index", i);
-            startActivity(intent);
 
-        }
-    }
 }
